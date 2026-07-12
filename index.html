@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA Dispatch - Careers Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css?v=2">
+    <link rel="stylesheet" href="css/components.css?v=2">
+</head>
+<body>
+    <div class="glass-background">
+        <div class="blur-circle circle-1"></div>
+        <div class="blur-circle circle-2"></div>
+        <div class="blur-circle circle-3"></div>
+    </div>
+
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <div class="logo" onclick="app.navigate('home')" style="display: flex; align-items: center; gap: 0.5rem;">
+                <img src="img/logo.jpg" alt="Aura Logo" style="height: 40px; border-radius: 50%;">
+                <span><span class="logo-aura">AURA</span> Dispatch</span>
+            </div>
+            <div class="nav-links">
+                <button class="nav-btn" onclick="app.navigate('home')">Careers Home</button>
+                <button class="nav-btn" onclick="app.navigate('benefits')">Job Benefits</button>
+                <button class="nav-btn" onclick="app.navigate('applicant-login')">Applicant Login</button>
+                <button class="nav-btn btn-primary" onclick="app.navigate('admin-login')">Admin Portal</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="app-container">
+        <!-- Views will be toggled via JS -->
+
+        <!-- HOME VIEW -->
+        <section id="home-view" class="view active">
+            <div class="hero-section" style="position: relative;">
+                <!-- Transparent Watermark Logo -->
+                <img src="img/logo.jpg" alt="" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 700px; max-width: 90%; opacity: 0.1; pointer-events: none; z-index: 0; border-radius: 50%; filter: grayscale(1) invert(1); mix-blend-mode: screen;">
+                
+                <h1 style="position: relative; z-index: 1;">Shape the Future of Delivery with <span class="gradient-text">AURA Dispatch</span></h1>
+                <p style="position: relative; z-index: 1;">Join a world-class team. Apply today for our premium roles.</p>
+                <div class="job-cards" style="position: relative; z-index: 1;">
+                    <div class="glass-card job-card">
+                        <h3>Delivery Staff</h3>
+                        <p>Join our elite fleet and deliver excellence.</p>
+                        <button class="btn-primary w-full mt-4" onclick="app.startApplication('Delivery Staff')">Apply Now</button>
+                    </div>
+                    <div class="glass-card job-card">
+                        <h3>Technical Staff</h3>
+                        <p>Power our operations with cutting-edge tech skills.</p>
+                        <button class="btn-primary w-full mt-4" onclick="app.startApplication('Technical Staff')">Apply Now</button>
+                    </div>
+                    <div class="glass-card job-card">
+                        <h3>Manager Staff</h3>
+                        <p>Operations, Finance, or Auditor. Lead the way.</p>
+                        <button class="btn-primary w-full mt-4" onclick="app.startApplication('Manager')">Apply Now</button>
+                    </div>
+                    <div class="glass-card job-card">
+                        <h3>Webcam Staff</h3>
+                        <p>Join our remote verification team.</p>
+                        <button class="btn-primary w-full mt-4" onclick="app.startApplication('Webcam Staff')">Apply Now</button>
+                    </div>
+                </div>
+                
+                <!-- Selection Eligibility Section -->
+                <div class="eligibility-section mt-6 glass-panel" style="text-align: left; max-width: 900px; margin-left: auto; margin-right: auto;">
+                    <h2 class="text-center">Selection Eligibility</h2>
+                    <p class="subtitle text-center" style="margin-bottom: 1.5rem;">View the qualifications required for each role.</p>
+                    
+                    <div class="eligibility-tabs" style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-bottom: 1.5rem;">
+                        <button class="btn-small tab-btn active" onclick="app.showEligibility('delivery')">Delivery Staff</button>
+                        <button class="btn-small tab-btn btn-outline" onclick="app.showEligibility('technical')">Technical Staff</button>
+                        <button class="btn-small tab-btn btn-outline" onclick="app.showEligibility('webcam')">Webcam Staff</button>
+                        <button class="btn-small tab-btn btn-outline" onclick="app.showEligibility('finance')">Finance Manager</button>
+                        <button class="btn-small tab-btn btn-outline" onclick="app.showEligibility('auditor')">Auditor</button>
+                        <button class="btn-small tab-btn btn-outline" onclick="app.showEligibility('operations')">Operations Manager</button>
+                    </div>
+
+                    <div class="eligibility-content">
+                        <!-- Delivery Staff -->
+                        <div id="elig-delivery" class="elig-pane active">
+                            <h3>Delivery Staff Eligibility</h3>
+                            <h4 class="mt-4">Basic Qualification</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Minimum 10th Pass (Matriculation).</li>
+                                <li>12th Pass or higher is preferred but not mandatory.</li>
+                            </ul>
+                            <h4 class="mt-4">Age & Physical Requirements</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>18 to 45 years. Physically fit for delivery work.</li>
+                                <li>Able to lift and carry delivery packages safely.</li>
+                                <li>Willing to work in different weather conditions.</li>
+                            </ul>
+                            <h4 class="mt-4">Driving Requirements</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Valid Two-Wheeler Driving License (Mandatory).</li>
+                                <li>Good riding skills and knowledge of traffic rules.</li>
+                                <li>Own bike/scooty preferred (or agency-provided vehicle if applicable).</li>
+                            </ul>
+                            <h4 class="mt-4">Required Documents</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Aadhaar Card, PAN Card, Driving License, Passport-size Photograph, Bank Account Details, Mobile Number, Address Proof</li>
+                            </ul>
+                            <h4 class="mt-4">Skills</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Basic smartphone knowledge, able to use GPS/Google Maps, good communication, honest, punctual.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Technical Staff -->
+                        <div id="elig-technical" class="elig-pane hidden">
+                            <h3>Technical Staff Eligibility</h3>
+                            <h4 class="mt-4">Educational Qualification</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Computer Course / Diploma in Computer Science, IT, Electronics, or a related field.</li>
+                                <li>B.Tech, BCA, B.Sc (Computer Science), MCA.</li>
+                                <li>Final-year students with relevant skills may also apply as interns or trainees.</li>
+                            </ul>
+                            <h4 class="mt-4">Age</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);"><li>18 to 55 years.</li></ul>
+                            <h4 class="mt-4">Required Documents</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Aadhaar Card, PAN Card, Educational Certificates, Passport-size Photograph, Resume/CV, Bank Account Details, Mobile Number, Address Proof</li>
+                            </ul>
+                            <h4 class="mt-4">Technical Skills</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Computer Hardware & Troubleshooting, Networking (Wi-Fi), Windows Use, Mobile app support, Printer/barcode scanner/POS setup.</li>
+                            </ul>
+                            <h4 class="mt-4">Soft Skills & Experience</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Good communication, problem-solving, teamwork, time management, customer support.</li>
+                                <li>Freshers with strong technical knowledge are welcome.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Webcam Staff -->
+                        <div id="elig-webcam" class="elig-pane hidden">
+                            <h3>Webcam Staff Eligibility</h3>
+                            <h4 class="mt-4">Educational Qualification</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Minimum 12th Pass. Graduate (Any Stream) preferred.</li>
+                                <li>Candidates with BCA, B.Tech, BBA, or equivalent qualifications are an advantage.</li>
+                            </ul>
+                            <h4 class="mt-4">Age</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);"><li>18 to 55 years.</li></ul>
+                            <h4 class="mt-4">Required Documents</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Aadhaar Card, PAN Card, Educational Certificates, Passport-size Photograph, Resume/CV, Bank Account Details, Mobile Number, Address Proof</li>
+                            </ul>
+                            <h4 class="mt-4">Technical Requirements</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Basic computer proficiency, Knowledge of Microsoft Office.</li>
+                                <li>Ability to operate webcam and Barcode QR code scan.</li>
+                                <li>Fast typing and accurate data entry, Stable internet connection.</li>
+                            </ul>
+                            <h4 class="mt-4">Skills & Experience</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Good English and local language communication, professional behavior, attention to detail.</li>
+                                <li>Freshers are welcome.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Finance Manager -->
+                        <div id="elig-finance" class="elig-pane hidden">
+                            <h3>Finance Manager Eligibility</h3>
+                            <h4 class="mt-4">Educational Qualification</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Minimum Bachelor’s Degree in Commerce, Finance, Accounting, Business Administration.</li>
+                                <li>Preferred: B.Com, M.Com, BBA (Finance), MBA (Finance), CA/CMA (Inter) or equivalent.</li>
+                            </ul>
+                            <h4 class="mt-4">Age</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);"><li>21 to 55 years.</li></ul>
+                            <h4 class="mt-4">Required Documents</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Aadhaar Card, PAN Card, Educational/Experience Certificates, Passport-size Photograph, Resume, Bank Account, Mobile, Address Proof</li>
+                            </ul>
+                            <h4 class="mt-4">Technical Skills</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Accounting, financial reporting, budget planning, payroll, Advanced Excel, Tally ERP, GST.</li>
+                            </ul>
+                            <h4 class="mt-4">Soft Skills & Experience</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Strong analytical skills, leadership, decision-making, high level of integrity.</li>
+                                <li>Minimum 2–5 years in finance, accounting, or financial management.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Auditor -->
+                        <div id="elig-auditor" class="elig-pane hidden">
+                            <h3>Auditor Eligibility</h3>
+                            <h4 class="mt-4">Educational Qualification</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Minimum Bachelor’s Degree in Commerce, Accounting, Finance, Business Administration.</li>
+                                <li>Preferred: B.Com, M.Com, BBA, MBA (Finance), CA/CMA (Inter/Final).</li>
+                            </ul>
+                            <h4 class="mt-4">Age</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);"><li>21 to 45 years.</li></ul>
+                            <h4 class="mt-4">Required Documents</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Aadhaar Card, PAN Card, Educational/Experience Certificates, Passport-size Photograph, Resume, Bank Account, Mobile, Address Proof</li>
+                            </ul>
+                            <h4 class="mt-4">Technical Skills</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Financial auditing and compliance, internal control, Advanced Excel, Tally ERP, Data analysis, basic GST.</li>
+                            </ul>
+                            <h4 class="mt-4">Soft Skills & Experience</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Strong analytical and problem-solving skills, integrity, good communication.</li>
+                                <li>Minimum 2–5 years of experience in auditing, accounting, or compliance.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Operations Manager -->
+                        <div id="elig-operations" class="elig-pane hidden">
+                            <h3>Operations Manager Eligibility</h3>
+                            <h4 class="mt-4">Educational Qualification</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Minimum Bachelor’s Degree in Business Administration, Management, Logistics, Supply Chain, Commerce, Computer Science.</li>
+                                <li>Preferred: BBA, MBA (Operations), B.Com, B.Tech, Diploma in Logistics.</li>
+                            </ul>
+                            <h4 class="mt-4">Age</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);"><li>21 to 45 years.</li></ul>
+                            <h4 class="mt-4">Required Documents</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Aadhaar Card, PAN Card, Educational/Experience Certificates, Passport-size Photograph, Resume, Bank Account, Mobile, Address Proof</li>
+                            </ul>
+                            <h4 class="mt-4">Technical Skills</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Operations management, staff scheduling, delivery fleet coordination, route planning, Excel/Dashboard tools.</li>
+                            </ul>
+                            <h4 class="mt-4">Soft Skills & Experience</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>Strong leadership, communication, decision-making, problem-solving.</li>
+                                <li>Minimum 2–5 years of experience in operations, logistics, warehouse management, or team leadership.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BENEFITS VIEW -->
+        <section id="benefits-view" class="view hidden">
+            <div class="glass-panel" style="max-width: 1000px; margin: 2rem auto; padding: 2rem; text-align: left;">
+                <h2 class="text-center" style="margin-bottom: 0.5rem;">Benefits of Job</h2>
+                <p class="subtitle text-center" style="margin-bottom: 2rem;">Discover the perks of joining the AURA Dispatch family.</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    
+                    <!-- Delivery Staff -->
+                    <div class="glass-card" style="padding: 1.5rem;">
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem; border-bottom: 1px solid var(--border-glass); padding-bottom: 0.5rem;">Delivery Staff</h3>
+                        <ul style="list-style: none; padding: 0; margin: 0; color: var(--text-secondary); font-size: 0.9rem;">
+                            <li style="margin-bottom: 0.5rem;">✅ Guaranteed daily work opportunities through partner shops.</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Daily or scheduled salary payments.</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Free company ID card and employee profile (Serves as Identity proof of Job).</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Company delivery bag, helmet (as applicable).</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Safety training and delivery support.</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Access to multiple partner shops through one agency instead of finding work independently.</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Apply for a loan of up to ₹1,00,000 (subject to Agency CIBIL Score, performance, and attendance).</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Free company-issued 5G mobile phone for official work purposes (order management, navigation, etc).</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Free Airtel 5G SIM card for official work communication and navigation.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Technical Staff -->
+                    <div class="glass-card" style="padding: 1.5rem;">
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem; border-bottom: 1px solid var(--border-glass); padding-bottom: 0.5rem;">Technical Staff</h3>
+                        <ul style="list-style: none; padding: 0; margin: 0; color: var(--text-secondary); font-size: 0.9rem;">
+                            <li style="margin-bottom: 0.5rem;">✅ Daily or scheduled salary payments.</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Professional work environment.</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Skill development through company training.</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Digital attendance and transparent salary records.</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Employee ID card and Helmet (Serves as Identity proof of Job).</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Apply for a loan of up to ₹3,00,000 (subject to Agency CIBIL Score, performance, and attendance).</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Free company-issued 5G calling + Wi-fi Tablet for official work purposes (order management, monitoring).</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Free Airtel 5G SIM card for official work communication.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Manager Staff -->
+                    <div class="glass-card" style="padding: 1.5rem;">
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem; border-bottom: 1px solid var(--border-glass); padding-bottom: 0.5rem;">Manager Staff</h3>
+                        <ul style="list-style: none; padding: 0; margin: 0; color: var(--text-secondary); font-size: 0.9rem;">
+                            <li style="margin-bottom: 0.5rem;">✅ Monthly salary up to ₹2,00,000.</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Leadership role in a growing logistics and delivery organization.</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Opportunity to manage teams and make strategic decisions.</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Professional training and continuous skill development.</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Transparent payroll and digital attendance system.</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Official company laptop or desktop, mobile phone, and communication facilities.</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Company email, digital identity, and management dashboard access.</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Eligibility for staff welfare programs, including performance bonuses and loans of up to ₹4,00,000 (No Agency CIBIL Score Required).</li>
+                        </ul>
+                    </div>
+
+                    <!-- Webcam Staff -->
+                    <div class="glass-card" style="padding: 1.5rem;">
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem; border-bottom: 1px solid var(--border-glass); padding-bottom: 0.5rem;">Webcam Staff</h3>
+                        <ul style="list-style: none; padding: 0; margin: 0; color: var(--text-secondary); font-size: 0.9rem;">
+                            <li style="margin-bottom: 0.5rem;">✅ Monthly fixed salary up to ₹30,000.</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Leadership role in a growing logistics and delivery organization.</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Opportunity to manage teams and make strategic decisions.</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Professional training and continuous skill development.</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Transparent payroll and digital attendance system.</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Official company laptop or desktop, mobile phone, and communication facilities.</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Company email, digital identity, and management dashboard access.</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Eligibility for staff welfare programs, including performance bonuses and loans of up to ₹4,00,000 (No Agency CIBIL Score Required).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- APPLICATION FORM VIEW -->
+        <section id="apply-view" class="view hidden">
+            <div class="glass-panel form-container">
+                <h2>Application Form: <span id="apply-role-name"></span></h2>
+                <form id="application-form" onsubmit="applicantView.submitApplication(event)">
+                    <input type="hidden" id="app-role" name="role">
+                    
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="app-name" required placeholder="John Doe">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Mobile Number</label>
+                        <input type="tel" id="app-mobile" required placeholder="+1 234 567 8900">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="app-email" required placeholder="john@example.com">
+                    </div>
+                    
+                    <div id="dynamic-fields">
+                        <!-- Filled by JS based on role -->
+                    </div>
+                    
+                    <button type="submit" class="btn-primary w-full mt-4">Submit Application</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- APPLICANT LOGIN VIEW -->
+        <section id="applicant-login-view" class="view hidden">
+            <div class="glass-panel form-container login-container">
+                <h2>Applicant Login</h2>
+                <p class="subtitle">Check your application status</p>
+                <form id="applicant-login-form" onsubmit="applicantView.login(event)">
+                    <div class="form-group">
+                        <label>Applicant ID or Mobile Number</label>
+                        <input type="text" id="login-app-id" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="login-app-pass" required>
+                    </div>
+                    <button type="submit" class="btn-primary w-full mt-4">Login</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- APPLICANT DASHBOARD VIEW -->
+        <section id="applicant-dashboard-view" class="view hidden">
+            <div class="dashboard-layout">
+                <aside class="glass-sidebar">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <img src="img/logo.jpg" alt="Aura Logo" style="width: 80px; height: 80px; border-radius: 50%; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                    </div>
+                    <h3>Careers Dashboard</h3>
+                    <ul class="sidebar-menu">
+                        <li class="active">Overview</li>
+                        <li>Notifications</li>
+                        <li>Documents</li>
+                        <li onclick="app.logout()">Logout</li>
+                    </ul>
+                </aside>
+                <div class="dashboard-content" style="position: relative;">
+                    <!-- Transparent Watermark Logo -->
+                    <img src="img/logo.jpg" alt="" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 500px; max-width: 80%; opacity: 0.15; pointer-events: none; z-index: 0; border-radius: 50%; filter: grayscale(1) invert(1); mix-blend-mode: screen;">
+                    
+                    <div class="glass-panel" style="position: relative; z-index: 1;">
+                        <h2>Welcome, <span id="dash-app-name"></span></h2>
+                        <div class="status-card">
+                            <div>
+                                <p class="label">Applicant ID</p>
+                                <p class="value" id="dash-app-id"></p>
+                            </div>
+                            <div>
+                                <p class="label">Position</p>
+                                <p class="value" id="dash-app-role"></p>
+                            </div>
+                            <div>
+                                <p class="label">Current Status</p>
+                                <span class="badge" id="dash-app-status"></span>
+                            </div>
+                            <div>
+                                <p class="label">Recruitment Stage</p>
+                                <p class="value" id="dash-app-stage"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6" style="background: rgba(0,0,0,0.2); padding: 1.5rem; border-radius: 0.5rem; border: 1px solid var(--border-glass);">
+                            <h3 style="margin-bottom: 1rem; border-bottom: 1px solid var(--border-glass); padding-bottom: 0.5rem;">Submitted Details</h3>
+                            <div id="dash-app-details" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                        
+                        <div id="applicant-actions" class="mt-6">
+                            <!-- Populated based on status (e.g. Verify docs, offer letter) -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADMIN LOGIN VIEW -->
+        <section id="admin-login-view" class="view hidden">
+            <div class="glass-panel form-container login-container">
+                <h2>Admin Login</h2>
+                <p class="subtitle">AURA Recruitment Management</p>
+                <form id="admin-login-form" onsubmit="adminView.login(event)">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="login-admin-user" required value="admin">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="login-admin-pass" required value="admin123">
+                    </div>
+                    <button type="submit" class="btn-primary w-full mt-4">Access Dashboard</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- ADMIN DASHBOARD VIEW -->
+        <section id="admin-dashboard-view" class="view hidden">
+            <div class="dashboard-layout">
+                <aside class="glass-sidebar admin-sidebar">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <img src="img/logo.jpg" alt="Aura Logo" style="width: 80px; height: 80px; border-radius: 50%; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                    </div>
+                    <h3>Admin Panel</h3>
+                    <ul class="sidebar-menu">
+                        <li class="active" onclick="adminView.showTab('overview')">Overview</li>
+                        <li onclick="adminView.showTab('applicants')">Applicants</li>
+                        <li onclick="adminView.showTab('employees')">Employees</li>
+                        <li onclick="adminView.showTab('reports')">Reports</li>
+                        <li onclick="app.logout()">Logout</li>
+                    </ul>
+                </aside>
+                <div class="dashboard-content">
+                    <div id="admin-tab-overview" class="admin-tab active" style="position: relative;">
+                        <!-- Transparent Watermark Logo -->
+                        <img src="img/logo.jpg" alt="" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 500px; max-width: 80%; opacity: 0.15; pointer-events: none; z-index: 0; border-radius: 50%; filter: grayscale(1) invert(1); mix-blend-mode: screen;">
+                        
+                        <h2 style="position: relative; z-index: 1;">Dashboard Overview</h2>
+                        <div class="stats-grid">
+                            <div class="glass-card stat-card">
+                                <h4>Total Applications</h4>
+                                <h2 id="stat-total">0</h2>
+                            </div>
+                            <div class="glass-card stat-card">
+                                <h4>Pending Verification</h4>
+                                <h2 id="stat-pending">0</h2>
+                            </div>
+                            <div class="glass-card stat-card">
+                                <h4>Selected Employees</h4>
+                                <h2 id="stat-selected">0</h2>
+                            </div>
+                            <div class="glass-card stat-card">
+                                <h4>Rejected</h4>
+                                <h2 id="stat-rejected">0</h2>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="admin-tab-applicants" class="admin-tab hidden">
+                        <h2>Applicant Management</h2>
+                        <div class="glass-panel">
+                            <div class="table-controls">
+                                <input type="text" id="admin-search" placeholder="Search ID or Name..." onkeyup="adminView.filterApplicants()">
+                                <select id="admin-filter-status" onchange="adminView.filterApplicants()">
+                                    <option value="">All Statuses</option>
+                                    <option value="Submitted">Submitted</option>
+                                    <option value="Pending Review">Pending Review</option>
+                                    <option value="Approved">Approved</option>
+                                    <option value="Rejected">Rejected</option>
+                                    <option value="Selected">Selected</option>
+                                </select>
+                            </div>
+                            <div class="table-responsive mt-4">
+                                <table class="glass-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Applicant ID</th>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="admin-applicants-tbody">
+                                        <!-- Rendered by JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal for Admin to view/edit application -->
+    <div id="admin-modal" class="modal hidden">
+        <div class="modal-content glass-panel">
+            <span class="close-btn" onclick="adminView.closeModal()">&times;</span>
+            <h2>Applicant Details</h2>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- AI Chatbot Widget -->
+    <div class="chatbot-fab" onclick="chatbot.toggle()">
+        <!-- Chat Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.03 2 11c0 2.87 1.5 5.43 3.82 7.08-.34 1.83-1.4 3.34-1.45 3.41a.5.5 0 0 0 .6.75c2.4-.94 4.2-2.12 5.16-2.79A10.74 10.74 0 0 0 12 20c5.523 0 10-4.03 10-9s-4.477-9-10-9zm0 16.5c-1.28 0-2.5-.24-3.62-.68a.5.5 0 0 0-.44.06c-1.04.75-2.6 1.76-4.5 2.37.52-1.08 1.12-2.43 1.34-3.76a.5.5 0 0 0-.17-.46C2.7 14.59 1.5 12.87 1.5 11c0-4.41 4.7-8 10.5-8s10.5 3.59 10.5 8-4.7 8-10.5 8z"/></svg>
+    </div>
+
+    <div id="chat-window" class="chat-window hidden">
+        <div class="chat-header">
+            <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="var(--primary-color)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-5h2v5h-2zm1-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>
+                AURA AI Assistant
+            </h3>
+            <span class="close-btn" style="position: static; font-size: 1.25rem;" onclick="chatbot.toggle()">&times;</span>
+        </div>
+        <div id="chat-messages" class="chat-messages">
+            <!-- Messages go here -->
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Ask about eligibility..." onkeypress="chatbot.handleKeyPress(event)">
+            <button onclick="chatbot.sendMessage()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="js/store.js?v=6"></script>
+    <script src="js/views/applicant.js?v=6"></script>
+    <script src="js/views/admin.js?v=6"></script>
+    <script src="js/app.js?v=6"></script>
+    <script src="js/chatbot.js?v=6"></script>
+</body>
+</html>
